@@ -7,9 +7,6 @@ RUN apt-get update && apt-get install -y curl && apt-get clean && rm -rf /var/li
 
 ADD nginx.conf /etc/nginx/
 
-CMD	./google_auth_proxy-1.0.linux-amd64.go1.3/google_auth_proxy \
-   --redirect-url="http://www.softhouse.se/oauth2/callback"  \
-   --google-apps-domain="softhouse.se"  \
-   --upstream=http://www.softhouse.se/ \
-   --cookie-https-only=false \
-   --http-address="0.0.0.0:4180"
+ADD google_auth_proxy.cfg /etc/google_auth_proxy.cfg
+
+CMD	./google_auth_proxy-1.0.linux-amd64.go1.3/google_auth_proxy -config=/etc/google_auth_proxy.cfg
