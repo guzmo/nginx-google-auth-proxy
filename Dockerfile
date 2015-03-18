@@ -7,6 +7,5 @@ RUN apt-get update && apt-get install -y curl && apt-get clean && rm -rf /var/li
 
 ADD nginx.conf /etc/nginx/
 
-ADD google_auth_proxy.cfg /etc/google_auth_proxy.cfg
 
-CMD	./google_auth_proxy-1.0.linux-amd64.go1.3/google_auth_proxy -config=/etc/google_auth_proxy.cfg
+CMD ./google_auth_proxy-1.0.linux-amd64.go1.3/google_auth_proxy -config=/etc/google_auth_proxy.cfg
